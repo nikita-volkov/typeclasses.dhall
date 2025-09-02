@@ -26,15 +26,15 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Generate docs
-        uses: nikita-volkov/dhall-docs.github-action@v0.1.0
-
-      - name: Add .nojekyll (avoid Jekyll processing)
-        run: touch docs/.nojekyll
+        id: generate-docs
+        uses: nikita-volkov/dhall-docs.github-action@v0.3
+        with:
+          input: src
 
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs
+          path: ${{ steps.generate-docs.outputs.path }}
 
       - name: Deploy to GitHub Pages
         id: deploy
