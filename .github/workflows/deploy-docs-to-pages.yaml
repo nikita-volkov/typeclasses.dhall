@@ -7,14 +7,6 @@ on:
   # Allow manual triggering
   workflow_dispatch:
 
-permissions:
-  # To checkout the repository
-  contents: read
-  # To deploy to GitHub Pages
-  pages: write
-  # For secure authentication with GitHub Pages
-  id-token: write
-
 jobs:
   build-docs:
     uses: nikita-volkov/deploy-dhall-docs-to-github-pages.github-actions-workflow/.github/workflows/main.yaml@master
