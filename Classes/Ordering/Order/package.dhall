@@ -2,4 +2,6 @@ let Order = ./Type.dhall
 
 let Handler = ./Handler/package.dhall
 
-in  { Type = Order, Handler }
+let ConcreteHandler = ./ConcreteHandler.dhall
+
+in  { Type = Order, Handler, ConcreteHandler }
