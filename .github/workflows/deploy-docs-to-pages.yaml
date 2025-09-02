@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-docs:
-    uses: nikita-volkov/deploy-dhall-docs-to-github-pages.github-actions-workflow/.github/workflows/main.yaml@master
+    uses: nikita-volkov/deploy-dhall-docs-to-github-pages.github-actions-workflow/.github/workflows/main.yaml@v1
     with:
       input: src
       package-name: typeclasses
