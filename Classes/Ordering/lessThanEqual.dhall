@@ -2,7 +2,7 @@ let Prelude = ../../Prelude.dhall
 
 let Ordering = ./Type.dhall
 
-let Comparison = ./Comparison.dhall
+let Order = ./Order.dhall
 
 in  \(A : Type) ->
     \(ordering : Ordering A) ->

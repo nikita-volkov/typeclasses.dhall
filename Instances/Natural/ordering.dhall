@@ -2,16 +2,16 @@ let Prelude = ../../Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 
-let Comparison = ../../Classes/Ordering/Comparison.dhall
+let Order = ../../Classes/Ordering/Order.dhall
 
 let compare
-    : Natural -> Natural -> Comparison
+    : Natural -> Natural -> Order
     = \(left : Natural) ->
       \(right : Natural) ->
         if    Prelude.Natural.lessThan left right
-        then  Comparison.Less
+        then  Order.Less
         else  if Prelude.Natural.lessThan right left
-        then  Comparison.Greater
-        else  Comparison.Equal
+        then  Order.Greater
+        else  Order.Equal
 
 in  { compare } : Ordering Natural

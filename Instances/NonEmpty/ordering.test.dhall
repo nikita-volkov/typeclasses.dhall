@@ -1,6 +1,6 @@
 let Prelude = ../../Prelude.dhall
 
-let Comparison = ../../Classes/Ordering/Comparison.dhall
+let Order = ../../Classes/Ordering/Order.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 
@@ -16,19 +16,19 @@ in  { singleElementNonEmpty =
           :     compare
                   { head = 1, tail = [] : List Natural }
                   { head = 2, tail = [] : List Natural }
-            ===  Comparison.Less
+            ===  Order.Less
       , greaterHead =
             assert
           :     compare
                   { head = 3, tail = [] : List Natural }
                   { head = 2, tail = [] : List Natural }
-            ===  Comparison.Greater
+            ===  Order.Greater
       , equalHead =
             assert
           :     compare
                   { head = 2, tail = [] : List Natural }
                   { head = 2, tail = [] : List Natural }
-            ===  Comparison.Equal
+            ===  Order.Equal
       }
     , multipleElementNonEmpty =
       { headDifferent =
@@ -37,13 +37,13 @@ in  { singleElementNonEmpty =
             :     compare
                     { head = 1, tail = [ 2, 3 ] }
                     { head = 2, tail = [ 1, 1 ] }
-              ===  Comparison.Less
+              ===  Order.Less
         , greaterHead =
               assert
             :     compare
                     { head = 3, tail = [ 1, 1 ] }
                     { head = 2, tail = [ 5, 5 ] }
-              ===  Comparison.Greater
+              ===  Order.Greater
         }
       , headSameTailDifferent =
         { LessTail =
@@ -51,19 +51,19 @@ in  { singleElementNonEmpty =
             :     compare
                     { head = 1, tail = [ 2, 3 ] }
                     { head = 1, tail = [ 2, 4 ] }
-              ===  Comparison.Less
+              ===  Order.Less
         , greaterTail =
               assert
             :     compare
                     { head = 1, tail = [ 3, 3 ] }
                     { head = 1, tail = [ 2, 4 ] }
-              ===  Comparison.Greater
+              ===  Order.Greater
         , equalTail =
               assert
             :     compare
                     { head = 1, tail = [ 2, 3 ] }
                     { head = 1, tail = [ 2, 3 ] }
-              ===  Comparison.Equal
+              ===  Order.Equal
         }
       , differentTailLengths =
         { shorterTail =
@@ -71,13 +71,13 @@ in  { singleElementNonEmpty =
             :     compare
                     { head = 1, tail = [ 2 ] }
                     { head = 1, tail = [ 2, 3 ] }
-              ===  Comparison.Less
+              ===  Order.Less
         , longerTail =
               assert
             :     compare
                     { head = 1, tail = [ 2, 3 ] }
                     { head = 1, tail = [ 2 ] }
-              ===  Comparison.Greater
+              ===  Order.Greater
         }
       }
     }

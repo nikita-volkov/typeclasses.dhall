@@ -1,24 +1,24 @@
 let Prelude = ../../Prelude.dhall
 
-let Comparison = ../../Classes/Ordering/Comparison.dhall
+let Order = ../../Classes/Ordering/Order.dhall
 
 let ordering = ./ordering.dhall
 
 let compare = ordering.compare
 
 in  { compare =
-      { LessNumbers = assert : compare 3 5 === Comparison.Less
-      , greaterNumbers = assert : compare 7 2 === Comparison.Greater
-      , equalNumbers = assert : compare 4 4 === Comparison.Equal
-      , zeroComparisons =
-        { zeroLessThanPositive = assert : compare 0 1 === Comparison.Less
-        , positiveGreaterThanZero = assert : compare 1 0 === Comparison.Greater
-        , zeroEqualsZero = assert : compare 0 0 === Comparison.Equal
+      { LessNumbers = assert : compare 3 5 === Order.Less
+      , greaterNumbers = assert : compare 7 2 === Order.Greater
+      , equalNumbers = assert : compare 4 4 === Order.Equal
+      , zeroOrders =
+        { zeroLessThanPositive = assert : compare 0 1 === Order.Less
+        , positiveGreaterThanZero = assert : compare 1 0 === Order.Greater
+        , zeroEqualsZero = assert : compare 0 0 === Order.Equal
         }
       , largeNumbers =
-        { LessLarge = assert : compare 999 1000 === Comparison.Less
-        , greaterLarge = assert : compare 1000 999 === Comparison.Greater
-        , equalLarge = assert : compare 1000 1000 === Comparison.Equal
+        { LessLarge = assert : compare 999 1000 === Order.Less
+        , greaterLarge = assert : compare 1000 999 === Order.Greater
+        , equalLarge = assert : compare 1000 1000 === Order.Equal
         }
       }
     }

@@ -2,7 +2,7 @@ let Prelude = ../../Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 
-let Comparison = ../../Classes/Ordering/Comparison.dhall
+let Order = ../../Classes/Ordering/Order.dhall
 
 let ListExtensions = ../List/package.dhall
 
@@ -12,8 +12,8 @@ let compare =
       \(left : Prelude.NonEmpty.Type Element) ->
       \(right : Prelude.NonEmpty.Type Element) ->
         merge
-          { Less = Comparison.Less
-          , Greater = Comparison.Greater
+          { Less = Order.Less
+          , Greater = Order.Greater
           , Equal =
               (ListExtensions.ordering Element elementOrder).compare
                 left.tail

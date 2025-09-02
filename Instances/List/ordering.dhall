@@ -2,7 +2,7 @@ let Prelude = ../../Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 
-let Comparison = ../../Classes/Ordering/Comparison.dhall
+let Order = ../../Classes/Ordering/Order.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 
@@ -15,25 +15,25 @@ let compare =
 
         let zipped = Prelude.List.zip Element left Element right
 
-        let zippedComparison =
+        let zippedOrder =
               Prelude.List.foldLeft
                 Pair
                 zipped
-                Comparison
-                ( \(state : Comparison) ->
+                Order
+                ( \(state : Order) ->
                   \(pair : Pair) ->
                     merge
-                      { Less = Comparison.Less
-                      , Greater = Comparison.Greater
+                      { Less = Order.Less
+                      , Greater = Order.Greater
                       , Equal = elementOrder.compare pair._1 pair._2
                       }
                       state
                 )
-                Comparison.Equal
+                Order.Equal
 
         in  merge
-              { Less = Comparison.Less
-              , Greater = Comparison.Greater
+              { Less = Order.Less
+              , Greater = Order.Greater
               , Equal =
                   let leftLength = Prelude.List.length Element left
 
@@ -41,7 +41,7 @@ let compare =
 
                   in  NaturalExtensions.ordering.compare leftLength rightLength
               }
-              zippedComparison
+              zippedOrder
 
 in  \(Element : Type) ->
     \(elementOrder : Ordering Element) ->
