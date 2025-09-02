@@ -1,9 +1,7 @@
-let Order = ./Type.dhall
+let Self = ./Type.dhall
 
 let Handler = ./Handler/package.dhall
 
-let ConcreteHandler
-    : forall (Result : Type) -> Handler.Type Result
-    = ./ConcreteHandler.dhall
+let ConcreteHandler = ./ConcreteHandler.dhall
 
-in  { Type = Order, Handler, ConcreteHandler }
+in  { Type = Self, Handler, ConcreteHandler }

@@ -24,8 +24,4 @@ let optional
         F (Optional A)
     = ./optional.dhall
 
-in  { Type = Self
-    , liftOptional
-    , ors
-    , optional
-    }
+in  { Type = Self, liftOptional, ors, optional }
