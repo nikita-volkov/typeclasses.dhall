@@ -1,8 +1,8 @@
-let Self = ./Type.dhall
+let Applicative = ./Type.dhall
 
 let sequenceList
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       List (F A) ->
         F (List A)
@@ -10,7 +10,7 @@ let sequenceList
 
 let traverseList
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       (A -> F B) ->
@@ -19,12 +19,16 @@ let traverseList
     = ./traverseList.dhall
 
 let map0
-    : forall (F : Type -> Type) -> Self F -> forall (A : Type) -> A -> F A
+    : forall (F : Type -> Type) ->
+      Applicative F ->
+      forall (A : Type) ->
+      A ->
+        F A
     = ./map0.dhall
 
 let map1
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       (A -> B) ->
@@ -34,7 +38,7 @@ let map1
 
 let map2
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -46,7 +50,7 @@ let map2
 
 let map3
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -60,7 +64,7 @@ let map3
 
 let map4
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -76,7 +80,7 @@ let map4
 
 let map5
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -94,7 +98,7 @@ let map5
 
 let map6
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -114,7 +118,7 @@ let map6
 
 let map7
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -136,7 +140,7 @@ let map7
 
 let map8
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -160,7 +164,7 @@ let map8
 
 let map9
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -186,7 +190,7 @@ let map9
 
 let map10
     : forall (F : Type -> Type) ->
-      Self F ->
+      Applicative F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -212,7 +216,7 @@ let map10
         F L
     = ./map10.dhall
 
-in  { Type = Self
+in  { Type = Applicative
     , sequenceList
     , traverseList
     , map0

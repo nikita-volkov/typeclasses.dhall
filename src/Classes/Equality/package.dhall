@@ -1,1 +1,11 @@
-{ Type = ./Type.dhall, equal = ./equal.dhall, notEqual = ./notEqual.dhall }
+let Equality = ./Type.dhall
+
+let equal
+    : forall (A : Type) -> Equality A -> A -> A -> Bool
+    = ./equal.dhall
+
+let notEqual
+    : forall (A : Type) -> Equality A -> A -> A -> Bool
+    = ./notEqual.dhall
+
+in  { Type = Equality, equal, notEqual }
