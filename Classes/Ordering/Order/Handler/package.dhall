@@ -1,8 +1,11 @@
-\(Result : Type) ->
-  let Self = ./Type.dhall Result
+let Self
+    : Type -> Type
+    = ./Type.dhall
 
-  let default
-      : Result -> Self
-      = ./default.dhall Result
+let default
+    : forall (Result : Type) -> Result -> Self Result
+    = ./default.dhall
 
-  in  { Type = Self, default }
+let AppliedApi = ./AppliedApi.dhall
+
+in  { Type = Self, default, AppliedApi }
