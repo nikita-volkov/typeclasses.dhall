@@ -4,8 +4,9 @@ let Classes = ../../Classes/package.dhall
 
 let Arbitrary = Classes.Arbitrary
 
-let Natural/div =
-      let quotient =
+let Natural/div
+    : Natural -> Natural -> Optional Natural
+    = let quotient =
             https://github.com/jcaesar/dhall-div/releases/download/1/quotient.dhall
               sha256:d6a994f4b431081e877a0beac02f5dcc98f3ea5b027986114487578056cb3db9
 
