@@ -1,12 +1,8 @@
 \(Result : Type) ->
-  let Self = { Less : Result, Equal : Result, Greater : Result }
+  let Self = ./Type.dhall Result
 
   let default
       : Result -> Self
-      = \(defaultResult : Result) ->
-          { Less = defaultResult
-          , Equal = defaultResult
-          , Greater = defaultResult
-          }
+      = ./default.dhall Result
 
   in  { Type = Self, default }
