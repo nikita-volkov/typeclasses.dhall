@@ -1,8 +1,8 @@
-let Self = ./Type.dhall
+let Alternative = ./Type.dhall
 
 let liftOptional
     : forall (F : Type -> Type) ->
-      Self F ->
+      Alternative F ->
       forall (A : Type) ->
       Optional A ->
         F A
@@ -10,7 +10,7 @@ let liftOptional
 
 let ors
     : forall (F : Type -> Type) ->
-      Self F ->
+      Alternative F ->
       forall (A : Type) ->
       List (F A) ->
         F A
@@ -18,10 +18,10 @@ let ors
 
 let optional
     : forall (F : Type -> Type) ->
-      Self F ->
+      Alternative F ->
       forall (A : Type) ->
       F A ->
         F (Optional A)
     = ./optional.dhall
 
-in  { Type = Self, liftOptional, ors, optional }
+in  { Type = Alternative, liftOptional, ors, optional }

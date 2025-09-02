@@ -1,11 +1,11 @@
-let Self = ./Type.dhall
+let Equality = ./Type.dhall
 
 let equal
-    : forall (A : Type) -> Self A -> A -> A -> Bool
+    : forall (A : Type) -> Equality A -> A -> A -> Bool
     = ./equal.dhall
 
 let notEqual
-    : forall (A : Type) -> Self A -> A -> A -> Bool
+    : forall (A : Type) -> Equality A -> A -> A -> Bool
     = ./notEqual.dhall
 
-in  { Type = Self, equal, notEqual }
+in  { Type = Equality, equal, notEqual }
