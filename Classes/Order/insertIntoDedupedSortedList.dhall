@@ -29,7 +29,7 @@ in  \(A : Type) ->
                     if    state.inserted
                     then  { inserted = True, list = [ element ] # state.list }
                     else  merge
-                            { Smaller =
+                            { Less =
                               { inserted = True
                               , list = [ element, newElement ] # state.list
                               }

@@ -11,12 +11,12 @@ let instance = order Natural NaturalExtensions.order
 let compare = instance.compare
 
 in  { singleElementNonEmpty =
-      { smallerHead =
+      { LessHead =
             assert
           :     compare
                   { head = 1, tail = [] : List Natural }
                   { head = 2, tail = [] : List Natural }
-            ===  Comparison.Smaller
+            ===  Comparison.Less
       , greaterHead =
             assert
           :     compare
@@ -32,12 +32,12 @@ in  { singleElementNonEmpty =
       }
     , multipleElementNonEmpty =
       { headDifferent =
-        { smallerHead =
+        { LessHead =
               assert
             :     compare
                     { head = 1, tail = [ 2, 3 ] }
                     { head = 2, tail = [ 1, 1 ] }
-              ===  Comparison.Smaller
+              ===  Comparison.Less
         , greaterHead =
               assert
             :     compare
@@ -46,12 +46,12 @@ in  { singleElementNonEmpty =
               ===  Comparison.Greater
         }
       , headSameTailDifferent =
-        { smallerTail =
+        { LessTail =
               assert
             :     compare
                     { head = 1, tail = [ 2, 3 ] }
                     { head = 1, tail = [ 2, 4 ] }
-              ===  Comparison.Smaller
+              ===  Comparison.Less
         , greaterTail =
               assert
             :     compare
@@ -71,7 +71,7 @@ in  { singleElementNonEmpty =
             :     compare
                     { head = 1, tail = [ 2 ] }
                     { head = 1, tail = [ 2, 3 ] }
-              ===  Comparison.Smaller
+              ===  Comparison.Less
         , longerTail =
               assert
             :     compare

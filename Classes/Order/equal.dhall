@@ -7,5 +7,5 @@ in  \(A : Type) ->
     \(left : A) ->
     \(right : A) ->
       merge
-        { Smaller = False, Equal = True, Greater = False }
+        { Less = False, Equal = True, Greater = False }
         (order.compare left right)

@@ -23,7 +23,7 @@ let compare =
                 ( \(state : Comparison) ->
                   \(pair : Pair) ->
                     merge
-                      { Smaller = Comparison.Smaller
+                      { Less = Comparison.Less
                       , Greater = Comparison.Greater
                       , Equal = elementOrder.compare pair._1 pair._2
                       }
@@ -32,7 +32,7 @@ let compare =
                 Comparison.Equal
 
         in  merge
-              { Smaller = Comparison.Smaller
+              { Less = Comparison.Less
               , Greater = Comparison.Greater
               , Equal =
                   let leftLength = Prelude.List.length Element left

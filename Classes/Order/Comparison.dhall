@@ -1,1 +1,1 @@
-< Smaller | Equal | Greater >
+< Less | Equal | Greater >

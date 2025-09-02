@@ -12,7 +12,7 @@ let compare =
       \(left : Prelude.NonEmpty.Type Element) ->
       \(right : Prelude.NonEmpty.Type Element) ->
         merge
-          { Smaller = Comparison.Smaller
+          { Less = Comparison.Less
           , Greater = Comparison.Greater
           , Equal =
               (ListExtensions.order Element elementOrder).compare

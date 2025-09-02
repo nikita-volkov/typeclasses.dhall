@@ -9,7 +9,7 @@ let compare
     = \(left : Natural) ->
       \(right : Natural) ->
         if    Prelude.Natural.lessThan left right
-        then  Comparison.Smaller
+        then  Comparison.Less
         else  if Prelude.Natural.lessThan right left
         then  Comparison.Greater
         else  Comparison.Equal
