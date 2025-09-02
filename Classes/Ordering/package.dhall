@@ -1,6 +1,5 @@
 { Type = ./Type.dhall
-, Order = ./Order.dhall
-, OrderHandler = ./OrderHandler.dhall
+, Order = ./Order/package.dhall
 , toEquality = ./toEquality.dhall
 , equal = ./equal.dhall
 , notEqual = ./notEqual.dhall

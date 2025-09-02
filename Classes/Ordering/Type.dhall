@@ -1,1 +1,1 @@
-\(A : Type) -> { order : A -> A -> ./Order.dhall }
+\(A : Type) -> { order : A -> A -> ./Order/Type.dhall }

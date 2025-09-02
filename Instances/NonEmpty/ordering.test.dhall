@@ -1,6 +1,6 @@
 let Prelude = ../../Prelude.dhall
 
-let Order = ../../Classes/Ordering/Order.dhall
+let Order = ../../Classes/Ordering/Order/Type.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 

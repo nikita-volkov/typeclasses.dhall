@@ -2,7 +2,7 @@ let Prelude = ../../Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 
-let Order = ../../Classes/Ordering/Order.dhall
+let Order = ../../Classes/Ordering/Order/Type.dhall
 
 let ListExtensions = ../List/package.dhall
 
