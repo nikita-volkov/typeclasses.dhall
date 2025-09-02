@@ -8,4 +8,4 @@ in  \(A : Type) ->
     \(right : A) ->
       merge
         { Less = False, Equal = True, Greater = False }
-        (ordering.compare left right)
+        (ordering.order left right)

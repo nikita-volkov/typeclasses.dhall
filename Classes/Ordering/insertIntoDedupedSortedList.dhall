@@ -42,7 +42,7 @@ in  \(A : Type) ->
                               , list = [ element ] # state.list
                               }
                             }
-                            (ordering.compare newElement element)
+                            (ordering.order newElement element)
 
             let finishState
                 : State -> List A

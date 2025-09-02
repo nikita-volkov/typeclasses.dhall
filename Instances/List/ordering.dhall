@@ -6,7 +6,7 @@ let Order = ../../Classes/Ordering/Order.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 
-let compare =
+let order =
       \(Element : Type) ->
       \(elementOrder : Ordering Element) ->
       \(left : List Element) ->
@@ -25,7 +25,7 @@ let compare =
                     merge
                       { Less = Order.Less
                       , Greater = Order.Greater
-                      , Equal = elementOrder.compare pair._1 pair._2
+                      , Equal = elementOrder.order pair._1 pair._2
                       }
                       state
                 )
@@ -39,10 +39,10 @@ let compare =
 
                   let rightLength = Prelude.List.length Element right
 
-                  in  NaturalExtensions.ordering.compare leftLength rightLength
+                  in  NaturalExtensions.ordering.order leftLength rightLength
               }
               zippedOrder
 
 in  \(Element : Type) ->
     \(elementOrder : Ordering Element) ->
-      { compare = compare Element elementOrder } : Ordering (List Element)
+      { order = order Element elementOrder } : Ordering (List Element)

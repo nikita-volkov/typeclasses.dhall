@@ -4,7 +4,7 @@ let Ordering = ../../Classes/Ordering/Type.dhall
 
 let Order = ../../Classes/Ordering/Order.dhall
 
-let compare
+let order
     : Natural -> Natural -> Order
     = \(left : Natural) ->
       \(right : Natural) ->
@@ -14,4 +14,4 @@ let compare
         then  Order.Greater
         else  Order.Equal
 
-in  { compare } : Ordering Natural
+in  { order } : Ordering Natural

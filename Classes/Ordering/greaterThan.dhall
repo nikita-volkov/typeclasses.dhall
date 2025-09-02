@@ -8,6 +8,4 @@ in  \(A : Type) ->
     \(ordering : Ordering A) ->
     \(x : A) ->
     \(y : A) ->
-      merge
-        { Less = False, Greater = True, Equal = False }
-        (ordering.compare x y)
+      merge { Less = False, Greater = True, Equal = False } (ordering.order x y)

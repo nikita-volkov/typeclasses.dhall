@@ -6,7 +6,7 @@ let Order = ../../Classes/Ordering/Order.dhall
 
 let ListExtensions = ../List/package.dhall
 
-let compare =
+let order =
       \(Element : Type) ->
       \(elementOrder : Ordering Element) ->
       \(left : Prelude.NonEmpty.Type Element) ->
@@ -15,13 +15,13 @@ let compare =
           { Less = Order.Less
           , Greater = Order.Greater
           , Equal =
-              (ListExtensions.ordering Element elementOrder).compare
+              (ListExtensions.ordering Element elementOrder).order
                 left.tail
                 right.tail
           }
-          (elementOrder.compare left.head right.head)
+          (elementOrder.order left.head right.head)
 
 in  \(Element : Type) ->
     \(elementOrder : Ordering Element) ->
-        { compare = compare Element elementOrder }
+        { order = order Element elementOrder }
       : Ordering (Prelude.NonEmpty.Type Element)
