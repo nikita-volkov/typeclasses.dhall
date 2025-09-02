@@ -1,0 +1,41 @@
+name: Deploy Haddock Documentation to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+  workflow_call:
+
+# Prevent overlapping publishes on rapid pushes
+concurrency:
+  group: deploy-docs-to-pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate docs
+        uses: nikita-volkov/dhall-docs.github-action@v0.1.0
+
+      - name: Add .nojekyll (avoid Jekyll processing)
+        run: touch docs/.nojekyll
+
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
