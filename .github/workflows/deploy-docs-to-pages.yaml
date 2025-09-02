@@ -1,41 +1,24 @@
-name: Deploy Haddock Documentation to GitHub Pages
+name: Deploy Dhall Documentation to GitHub Pages
 
 on:
+  # Trigger on pushes to main or master branch
   push:
     branches: [ main, master ]
+  # Allow manual triggering
   workflow_dispatch:
-  workflow_call:
-
-# Prevent overlapping publishes on rapid pushes
-concurrency:
-  group: deploy-docs-to-pages
-  cancel-in-progress: true
 
 permissions:
+  # To checkout the repository
   contents: read
+  # To deploy to GitHub Pages
   pages: write
+  # For secure authentication with GitHub Pages
   id-token: write
 
 jobs:
   build-docs:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Generate docs
-        id: generate-docs
-        uses: nikita-volkov/dhall-docs.github-action@v0.3
-        with:
-          input: src
-
-      - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ${{ steps.generate-docs.outputs.path }}
-
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+    uses: nikita-volkov/deploy-dhall-docs-to-github-pages.github-actions-workflow/.github/workflows/main.yaml@master
+    with:
+      input: src
+      package-name: typeclasses
+    secrets: inherit
