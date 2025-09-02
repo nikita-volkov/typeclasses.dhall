@@ -1,12 +1,12 @@
 let Prelude = ../../Prelude.dhall
 
-let Comparison = ../../Classes/Order/Comparison.dhall
+let Comparison = ../../Classes/Ordering/Comparison.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 
-let order = ./order.dhall
+let ordering = ./ordering.dhall
 
-let instance = order Natural NaturalExtensions.order
+let instance = ordering Natural NaturalExtensions.ordering
 
 let compare = instance.compare
 

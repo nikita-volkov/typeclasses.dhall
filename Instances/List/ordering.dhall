@@ -1,14 +1,14 @@
 let Prelude = ../../Prelude.dhall
 
-let Order = ../../Classes/Order/Type.dhall
+let Ordering = ../../Classes/Ordering/Type.dhall
 
-let Comparison = ../../Classes/Order/Comparison.dhall
+let Comparison = ../../Classes/Ordering/Comparison.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 
 let compare =
       \(Element : Type) ->
-      \(elementOrder : Order Element) ->
+      \(elementOrder : Ordering Element) ->
       \(left : List Element) ->
       \(right : List Element) ->
         let Pair = { _1 : Element, _2 : Element }
@@ -39,10 +39,10 @@ let compare =
 
                   let rightLength = Prelude.List.length Element right
 
-                  in  NaturalExtensions.order.compare leftLength rightLength
+                  in  NaturalExtensions.ordering.compare leftLength rightLength
               }
               zippedComparison
 
 in  \(Element : Type) ->
-    \(elementOrder : Order Element) ->
-      { compare = compare Element elementOrder } : Order (List Element)
+    \(elementOrder : Ordering Element) ->
+      { compare = compare Element elementOrder } : Ordering (List Element)

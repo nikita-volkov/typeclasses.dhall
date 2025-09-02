@@ -1,1 +1,1 @@
-{ equality = ./equality.dhall, order = ./order.dhall }
+{ equality = ./equality.dhall, ordering = ./ordering.dhall }

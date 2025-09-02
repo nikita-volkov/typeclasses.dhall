@@ -1,5 +1,5 @@
 { Equality = ./Equality/package.dhall
-, Order = ./Order/package.dhall
+, Ordering = ./Ordering/package.dhall
 , Arbitrary = ./Arbitrary/package.dhall
 , Functor = ./Functor/package.dhall
 , Applicative = ./Applicative/package.dhall

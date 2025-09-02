@@ -1,8 +1,8 @@
 let Prelude = ../../Prelude.dhall
 
-let Order = ../../Classes/Order/Type.dhall
+let Ordering = ../../Classes/Ordering/Type.dhall
 
-let Comparison = ../../Classes/Order/Comparison.dhall
+let Comparison = ../../Classes/Ordering/Comparison.dhall
 
 let compare
     : Natural -> Natural -> Comparison
@@ -14,4 +14,4 @@ let compare
         then  Comparison.Greater
         else  Comparison.Equal
 
-in  { compare } : Order Natural
+in  { compare } : Ordering Natural

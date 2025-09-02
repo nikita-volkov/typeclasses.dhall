@@ -1,7 +1,7 @@
--- Dedupes and sorts a list of elements of type `A` based on the provided `Order`.
+-- Dedupes and sorts a list of elements of type `A` based on the provided `Ordering`.
 let Prelude = ../../Prelude.dhall
 
-let Order = ./Type.dhall
+let Ordering = ./Type.dhall
 
 let insertIntoDedupedSortedList = ./insertIntoDedupedSortedList.dhall
 
@@ -14,10 +14,10 @@ in  \(A : Type) ->
           : State
           = [] : List A
 
-      in  \(order : Order A) ->
+      in  \(ordering : Ordering A) ->
             let updateState
                 : A -> State -> State
-                = insertIntoDedupedSortedList A order
+                = insertIntoDedupedSortedList A ordering
 
             in  \(list : List A) ->
                   Prelude.List.fold A list State updateState initialState

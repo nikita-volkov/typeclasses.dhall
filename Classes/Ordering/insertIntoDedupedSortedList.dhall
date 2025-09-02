@@ -3,7 +3,7 @@
 -- maintaining the sorted order.
 let Prelude = ../../Prelude.dhall
 
-let Order = ./Type.dhall
+let Ordering = ./Type.dhall
 
 let equal = ./equal.dhall
 
@@ -20,7 +20,7 @@ in  \(A : Type) ->
           : State
           = { inserted = False, list = [] : List A }
 
-      in  \(order : Order A) ->
+      in  \(ordering : Ordering A) ->
           \(newElement : A) ->
             let updateState
                 : State -> A -> State
@@ -42,7 +42,7 @@ in  \(A : Type) ->
                               , list = [ element ] # state.list
                               }
                             }
-                            (order.compare newElement element)
+                            (ordering.compare newElement element)
 
             let finishState
                 : State -> List A

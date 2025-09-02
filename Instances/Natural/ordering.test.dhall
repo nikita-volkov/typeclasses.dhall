@@ -1,10 +1,10 @@
 let Prelude = ../../Prelude.dhall
 
-let Comparison = ../../Classes/Order/Comparison.dhall
+let Comparison = ../../Classes/Ordering/Comparison.dhall
 
-let order = ./order.dhall
+let ordering = ./ordering.dhall
 
-let compare = order.compare
+let compare = ordering.compare
 
 in  { compare =
       { LessNumbers = assert : compare 3 5 === Comparison.Less
