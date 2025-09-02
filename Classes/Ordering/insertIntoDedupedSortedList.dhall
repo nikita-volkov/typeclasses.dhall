@@ -5,12 +5,6 @@ let Prelude = ../../Prelude.dhall
 
 let Ordering = ./Type.dhall
 
-let equal = ./equal.dhall
-
-let lessThanEqual = ./lessThanEqual.dhall
-
-let greaterThanEqual = ./greaterThanEqual.dhall
-
 in  \(A : Type) ->
       let State
           : Type

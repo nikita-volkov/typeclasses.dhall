@@ -1,7 +1,5 @@
 let Applicative = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
-
 in  \(F : Type -> Type) ->
     \(applicative : Applicative F) ->
     \(A : Type) ->

@@ -1,7 +1,5 @@
 let Alternative = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
-
 in  \(F : Type -> Type) ->
     \(alternative : Alternative F) ->
     \(A : Type) ->

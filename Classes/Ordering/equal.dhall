@@ -1,5 +1,3 @@
-let Prelude = ../../Prelude.dhall
-
 let Ordering = ./Type.dhall
 
 in  \(A : Type) ->
