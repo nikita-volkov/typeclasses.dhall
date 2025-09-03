@@ -1,3 +1,30 @@
+{-|
+List applicative instance.
+
+This instance implements the `Applicative` typeclass for `List` values,
+enabling function application across list elements (Cartesian product behavior).
+
+## Implementation
+- **pure**: Creates a singleton list containing the value
+- **map2**: Applies a binary function to all combinations of elements from two lists
+
+## Usage
+```dhall
+let listApplicative = ./applicative.dhall
+let add = \(x : Natural) -> \(y : Natural) -> x + y
+
+let result1 = listApplicative.pure Natural 42                           -- [42]
+let result2 = listApplicative.map2 Natural Natural Natural add [1, 2] [10, 20]  -- [11, 21, 12, 22]
+let result3 = listApplicative.map2 Natural Natural Natural add [] [1, 2]        -- []
+```
+
+## Laws
+This implementation satisfies all Applicative laws:
+- **Identity**: `map2 (\x -> \y -> x) (pure a) v = v`
+- **Composition**: Applicative composition laws hold
+- **Homomorphism**: `map2 f (pure a) (pure b) = pure (f a b)`
+- **Interchange**: Interchange law for applicative functors
+-}
 let Applicative = ../../Classes/Applicative/Type.dhall
 
 let functor = ./functor.dhall

@@ -1,7 +1,8 @@
 {-|
-List typeclass instances for equality, ordering, and arbitrary generation.
+List typeclass instances for equality, ordering, and functional programming abstractions.
 
-All instances use lexicographic semantics and require element instances.
+Supports all major typeclasses including functors, monads, and alternatives,
+enabling full functional programming workflows with lists using lexicographic semantics.
 -}
 { arbitrary = ./arbitrary.dhall
 , equality = ./equality.dhall
