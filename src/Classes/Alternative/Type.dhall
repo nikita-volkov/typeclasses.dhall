@@ -1,3 +1,8 @@
+{-|
+Alternative typeclass extending Applicative with choice and failure.
+
+Requires: applicative, empty, or.
+-}
 \(F : Type -> Type) ->
   { applicative : ../Applicative/Type.dhall F
   , empty : forall (A : Type) -> F A

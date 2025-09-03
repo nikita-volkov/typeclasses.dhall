@@ -1,6 +1,7 @@
--- Typeclass for generating arbitrary values of a given type.
---
--- Depth is used to control the complexity of the generated values.
--- At depth 0 it's most complex. At 1 it's less complex, and so on.
+{-|
+Arbitrary typeclass for generating random values given seed and depth.
+
+Requires: `generate : Natural -> Natural -> Value`
+-}
 \(Value : Type) ->
   { generate : forall (seed : Natural) -> forall (depth : Natural) -> Value }

@@ -1,3 +1,6 @@
+{-|
+Convert `List (F A)` into `F (List A)` by sequencing computations.
+-}
 let Applicative = ./Type.dhall
 
 let Prelude = ../../Prelude.dhall

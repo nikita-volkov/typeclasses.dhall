@@ -1,4 +1,11 @@
-let Alternative = ./Type.dhall
+{-|
+Alternative typeclass for choice, failure, and alternative computations.
+
+Exports: Type, liftOptional, ors, optional.
+-}
+let Alternative
+    : (Type -> Type) -> Type
+    = ./Type.dhall
 
 let liftOptional
     : forall (F : Type -> Type) ->

@@ -1,4 +1,11 @@
-let Applicative = ./Type.dhall
+{-|
+Applicative typeclass and utility functions for applicative computations.
+
+Exports: Type, sequenceList, traverseList, map0-map10.
+-}
+let Applicative
+    : (Type -> Type) -> Type
+    = ./Type.dhall
 
 let sequenceList
     : forall (F : Type -> Type) ->

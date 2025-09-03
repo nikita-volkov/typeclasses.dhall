@@ -1,4 +1,11 @@
-let Equality = ./Type.dhall
+{-|
+Equality typeclass for types that support equality comparison.
+
+Exports: Type, equal, notEqual.
+-}
+let Equality
+    : Type -> Type
+    = ./Type.dhall
 
 let equal
     : forall (A : Type) -> Equality A -> A -> A -> Bool

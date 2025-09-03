@@ -1,4 +1,11 @@
-let Ordering = ./Type.dhall
+{-|
+Ordering typeclass for types that support total ordering and comparison.
+
+Exports: Type, Order, conversion and comparison functions, list operations.
+-}
+let Ordering
+    : Type -> Type
+    = ./Type.dhall
 
 let Order = ./Order/package.dhall
 

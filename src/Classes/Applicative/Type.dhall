@@ -1,3 +1,8 @@
+{-|
+Applicative typeclass extending Functor with function application in context.
+
+Requires: functor, pure, map2.
+-}
 \(F : Type -> Type) ->
   { functor : ../Functor/Type.dhall F
   , pure : forall (A : Type) -> A -> F A

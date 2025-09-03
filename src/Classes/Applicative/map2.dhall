@@ -1,3 +1,6 @@
+{-|
+Apply a binary function to two applicative values.
+-}
 let Applicative = ./Type.dhall
 
 in  \(F : Type -> Type) ->
