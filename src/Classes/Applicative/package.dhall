@@ -1,54 +1,7 @@
 {-|
-# Applicative Typeclass Module
+Applicative typeclass and utility functions for applicative computations.
 
-This module provides the `Applicative` typeclass and a comprehensive set of utility
-functions for working with applicative computations.
-
-## Exports
-
-### Core Type
-- **`Type`** - The `Applicative` typeclass definition
-
-### List Operations
-- **`sequenceList`** - Convert `List (F A)` to `F (List A)`
-- **`traverseList`** - Map a function and sequence in one step
-
-### Mapping Functions
-- **`map0`** through **`map10`** - Apply functions of various arities within applicative context
-
-## Mapping Functions
-
-The `mapN` functions allow you to apply functions of N arguments to N applicative values:
-
-- **`map0`** - Lift a value into applicative context (equivalent to `pure`)
-- **`map1`** - Apply unary function (equivalent to `map` from Functor)
-- **`map2`** - Apply binary function to two applicative values
-- **`map3`** - Apply ternary function to three applicative values
-- ... and so on up to **`map10`**
-
-## Usage Examples
-
-```dhall
-let Applicative = ./Applicative/package.dhall
-
--- Apply a binary function
-let add = \(x : Natural) -> \(y : Natural) -> x + y
-let result = Applicative.map2 F applicativeInstance Natural Natural Natural add fa fb
-
--- Sequence a list of computations
-let computations : List (F Natural) = [fa, fb, fc]
-let sequenced : F (List Natural) = Applicative.sequenceList F applicativeInstance Natural computations
-
--- Traverse with a function
-let increment = \(x : Natural) -> pure (x + 1)
-let result = Applicative.traverseList F applicativeInstance Natural Natural increment [1, 2, 3]
-```
-
-## Implementation Notes
-
-- Higher-arity `mapN` functions are implemented in terms of `map2`, using currying
-- `traverseList` is implemented as `map` followed by `sequenceList`
-- All functions respect the Applicative laws and maintain proper type safety
+Exports: Type, sequenceList, traverseList, map0-map10.
 -}
 let Applicative
     : (Type -> Type) -> Type
