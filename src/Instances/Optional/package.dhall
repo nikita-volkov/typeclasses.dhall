@@ -4,4 +4,5 @@
 , alternative = ./alternative.dhall
 , equality = ./equality.dhall
 , ordering = ./ordering.dhall
+, arbitrary = ./arbitrary.dhall
 }
