@@ -20,7 +20,7 @@ let result2 = optionalFunctor.map Natural Natural increment (None Natural)  -- N
 
 ## Laws
 This implementation satisfies all Functor laws:
-- **Identity**: `map (\x -> x) = (\x -> x)` 
+- **Identity**: `map (\x -> x) = (\x -> x)`
 - **Composition**: `map (f ∘ g) = map f ∘ map g`
 -}
 let Functor = ../../Classes/Functor/Type.dhall

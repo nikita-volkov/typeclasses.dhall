@@ -7,7 +7,7 @@ providing parameterized equality that requires an equality instance for the wrap
 ## Implementation
 Uses pattern matching to handle all Optional value combinations:
 - `None = None` ⟹ `True`
-- `None = Some _` ⟹ `False`  
+- `None = Some _` ⟹ `False`
 - `Some _ = None` ⟹ `False`
 - `Some a = Some b` ⟹ `equal a b` (using the provided equality instance)
 

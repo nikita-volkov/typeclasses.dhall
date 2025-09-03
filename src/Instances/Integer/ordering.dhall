@@ -12,7 +12,7 @@ relationships between integers.
 ```dhall
 let integerOrdering = ./ordering.dhall
 let result1 = integerOrdering.order -5 +3   -- Order.Less
-let result2 = integerOrdering.order +7 +2   -- Order.Greater  
+let result2 = integerOrdering.order +7 +2   -- Order.Greater
 let result3 = integerOrdering.order +4 +4   -- Order.Equal
 ```
 

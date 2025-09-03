@@ -11,7 +11,7 @@ enabling sequential composition of optional computations.
 ## Usage
 ```dhall
 let optionalMonad = ./monad.dhall
-let safeDivide = \(x : Natural) -> \(y : Natural) -> 
+let safeDivide = \(x : Natural) -> \(y : Natural) ->
   if Natural/isZero y then None Natural else Some (Natural/subtract x y)
 
 let result1 = optionalMonad.flatMap Natural Natural (safeDivide 10) (Some 2)        -- Some 8

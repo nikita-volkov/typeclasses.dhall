@@ -13,7 +13,7 @@ Uses modular arithmetic to alternate between `True` and `False` values:
 ```dhall
 let boolArbitrary = ./arbitrary.dhall
 let result1 = boolArbitrary.generate 0 0  -- True
-let result2 = boolArbitrary.generate 1 0  -- False  
+let result2 = boolArbitrary.generate 1 0  -- False
 let result3 = boolArbitrary.generate 2 1  -- False
 ```
 
