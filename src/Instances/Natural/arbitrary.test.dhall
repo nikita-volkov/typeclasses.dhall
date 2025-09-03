@@ -9,8 +9,8 @@ in  { generate =
         , seed5depth0 = assert : generate 5 0 === 5
         }
       , differentDepths =
-        { seed0depth1 = assert : generate 0 1 === 0
-        , seed0depth2 = assert : generate 0 2 === 0
+        { seed0depth1 = assert : generate 0 1 === 1
+        , seed0depth2 = assert : generate 0 2 === 1
         }
       }
     }
