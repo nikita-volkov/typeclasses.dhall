@@ -1,0 +1,5 @@
+dhall.tar.bz2
+*.tar.bz2
+*.tar.gz
+*.zip
+.DS_Store
