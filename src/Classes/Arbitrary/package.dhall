@@ -1,4 +1,6 @@
-let Arbitrary = ./Type.dhall
+let Arbitrary
+    : Type -> Type
+    = ./Type.dhall
 
 let sample
     : forall (A : Type) -> Arbitrary A -> Natural -> List A

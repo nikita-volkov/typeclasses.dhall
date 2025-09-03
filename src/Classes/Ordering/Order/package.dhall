@@ -1,4 +1,6 @@
-let Self = ./Type.dhall
+let Self
+    : Type
+    = ./Type.dhall
 
 let Handler = ./Handler/package.dhall
 

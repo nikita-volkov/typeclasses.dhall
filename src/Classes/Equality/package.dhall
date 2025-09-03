@@ -1,4 +1,6 @@
-let Equality = ./Type.dhall
+let Equality
+    : Type -> Type
+    = ./Type.dhall
 
 let equal
     : forall (A : Type) -> Equality A -> A -> A -> Bool

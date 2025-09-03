@@ -1,4 +1,6 @@
-let Ordering = ./Type.dhall
+let Ordering
+    : Type -> Type
+    = ./Type.dhall
 
 let Order = ./Order/package.dhall
 

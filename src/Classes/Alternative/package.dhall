@@ -1,4 +1,6 @@
-let Alternative = ./Type.dhall
+let Alternative
+    : (Type -> Type) -> Type
+    = ./Type.dhall
 
 let liftOptional
     : forall (F : Type -> Type) ->
