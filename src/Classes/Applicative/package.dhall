@@ -1,4 +1,6 @@
-let Applicative = ./Type.dhall
+let Applicative
+    : (Type -> Type) -> Type
+    = ./Type.dhall
 
 let sequenceList
     : forall (F : Type -> Type) ->
