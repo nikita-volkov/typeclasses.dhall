@@ -13,17 +13,18 @@ let map2
       (A -> B -> C) ->
       Optional A ->
       Optional B ->
-      Optional C
-    = \(A : Type) -> \(B : Type) -> \(C : Type) -> \(f : A -> B -> C) ->
-      \(oa : Optional A) -> \(ob : Optional B) ->
+        Optional C
+    = \(A : Type) ->
+      \(B : Type) ->
+      \(C : Type) ->
+      \(f : A -> B -> C) ->
+      \(oa : Optional A) ->
+      \(ob : Optional B) ->
         merge
           { None = None C
-          , Some = \(a : A) ->
-              merge
-                { None = None C
-                , Some = \(b : B) -> Some (f a b)
-                }
-                ob
+          , Some =
+              \(a : A) ->
+                merge { None = None C, Some = \(b : B) -> Some (f a b) } ob
           }
           oa
 

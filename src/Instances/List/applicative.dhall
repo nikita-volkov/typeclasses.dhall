@@ -4,7 +4,7 @@ let functor = ./functor.dhall
 
 let pure
     : forall (A : Type) -> A -> List A
-    = \(A : Type) -> \(a : A) -> [a]
+    = \(A : Type) -> \(a : A) -> [ a ]
 
 let map2
     : forall (A : Type) ->
@@ -13,12 +13,16 @@ let map2
       (A -> B -> C) ->
       List A ->
       List B ->
-      List C
-    = \(A : Type) -> \(B : Type) -> \(C : Type) -> \(f : A -> B -> C) ->
-      \(as : List A) -> \(bs : List B) ->
+        List C
+    = \(A : Type) ->
+      \(B : Type) ->
+      \(C : Type) ->
+      \(f : A -> B -> C) ->
+      \(list : List A) ->
+      \(bs : List B) ->
         List/fold
           A
-          as
+          list
           (List C)
           ( \(a : A) ->
             \(acc : List C) ->
@@ -26,7 +30,7 @@ let map2
                 B
                 bs
                 (List C)
-                (\(b : B) -> \(acc2 : List C) -> [f a b] # acc2)
+                (\(b : B) -> \(acc2 : List C) -> [ f a b ] # acc2)
                 acc
           )
           ([] : List C)

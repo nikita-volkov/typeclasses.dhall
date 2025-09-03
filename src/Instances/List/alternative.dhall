@@ -8,7 +8,6 @@ let empty
 
 let or
     : forall (A : Type) -> List A -> List A -> List A
-    = \(A : Type) -> \(left : List A) -> \(right : List A) ->
-        left # right
+    = \(A : Type) -> \(left : List A) -> \(right : List A) -> left # right
 
 in  { applicative, empty, or } : Alternative List

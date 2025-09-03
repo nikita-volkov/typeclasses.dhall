@@ -8,11 +8,9 @@ let empty
 
 let or
     : forall (A : Type) -> Optional A -> Optional A -> Optional A
-    = \(A : Type) -> \(left : Optional A) -> \(right : Optional A) ->
-        merge
-          { None = right
-          , Some = \(a : A) -> Some a
-          }
-          left
+    = \(A : Type) ->
+      \(left : Optional A) ->
+      \(right : Optional A) ->
+        merge { None = right, Some = \(a : A) -> Some a } left
 
 in  { applicative, empty, or } : Alternative Optional
