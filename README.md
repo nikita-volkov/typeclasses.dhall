@@ -21,17 +21,8 @@ This library implements fundamental typeclasses from functional programming, ena
 To use this library in your Dhall project, you can import it directly from the GitHub repository:
 
 ```dhall
-let typeclasses = https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/master/src/package.dhall
-
-in typeclasses
-```
-
-For a specific version, use a tagged release:
-
-```dhall
-let typeclasses = https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/v1.0.0/src/package.dhall
-
-in typeclasses
+https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/v1.0.0/src/package.dhall
+  sha256:0304dc3df75975b96baaaea82b64dff90bb227128170a262933d062ff5320a22
 ```
 
 ## Type Definitions
