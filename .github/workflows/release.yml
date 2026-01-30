@@ -17,7 +17,7 @@ jobs:
 
       - name: Resolve Dhall
         id: resolve
-        uses: nikita-volkov/dhall-resolve.github-action@master
+        uses: nikita-volkov/dhall-resolve.github-action@v1
         with:
           file: src/package.dhall
 
@@ -39,6 +39,7 @@ jobs:
             ${{ steps.resolve.outputs.path }}
           draft: false
           prerelease: false
+          fail_on_unmatched_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
