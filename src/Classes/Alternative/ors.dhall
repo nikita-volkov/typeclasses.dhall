@@ -41,7 +41,7 @@ Uses `List.foldLeft` to combine alternatives from left to right:
 -- It chooses the first alternative to succeed, accumulating all the reports produced in the process.
 let Alternative = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 in  \(F : Type -> Type) ->
     \(alternative : Alternative F) ->

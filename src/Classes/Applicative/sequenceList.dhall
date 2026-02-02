@@ -3,7 +3,7 @@ Convert `List (F A)` into `F (List A)` by sequencing computations.
 -}
 let Applicative = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 in  \(F : Type -> Type) ->
     \(applicative : Applicative F) ->

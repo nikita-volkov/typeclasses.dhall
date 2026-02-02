@@ -38,7 +38,7 @@ let r6 = listOrdering.order [1, 2, 3] [1, 2, 3]     -- Order.Equal
 - **Time**: O(min(m,n)) where m, n are the list lengths
 - **Space**: O(min(m,n)) for the zipped pairs
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 

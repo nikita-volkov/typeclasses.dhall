@@ -39,13 +39,13 @@ The depth is decremented for elements to prevent infinite recursion in nested st
 - Elements become simpler as depth increases
 - Perfect for property-based testing scenarios
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Classes = ../../Classes/package.dhall
 
 let Arbitrary = Classes.Arbitrary
 
-let quotient = ../../quotient.dhall
+let quotient = ../../Deps/quotient.dhall
 
 let Natural/div
     : Natural -> Natural -> Optional Natural

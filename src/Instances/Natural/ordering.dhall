@@ -29,7 +29,7 @@ This implementation satisfies all Ordering laws:
 The implementation is efficient, using at most two comparison operations
 per call and leveraging Dhall's optimized natural number operations.
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 

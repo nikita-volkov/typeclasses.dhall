@@ -33,7 +33,7 @@ let result2 = liftOptional List listAlternative Natural noValue    -- [] : List 
 -}
 let Alternative = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 in  \(F : Type -> Type) ->
     \(alternative : Alternative F) ->

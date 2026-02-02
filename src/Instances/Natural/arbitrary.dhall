@@ -24,11 +24,11 @@ let result3 = naturalArbitrary.generate 15 3  -- 6 (= 18 / 3)
 - **Safe**: Handles division by zero gracefully
 - **Predictable**: Value ranges are proportional to input parameters
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Arbitrary = ../../Classes/Arbitrary/Type.dhall
 
-let quotient = ../../quotient.dhall
+let quotient = ../../Deps/quotient.dhall
 
 let Natural/div
     : Natural -> Natural -> Optional Natural

@@ -40,7 +40,7 @@ Combines `List.map` and `sequenceList`:
 -}
 let Applicative = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let sequenceList = ./sequenceList.dhall
 

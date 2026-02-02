@@ -35,7 +35,7 @@ Satisfies all Equality laws when the element equality does:
 - **Symmetry**: Order of comparison doesn't matter
 - **Transitivity**: Equality relationships compose correctly
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Equality = ../../Classes/Equality/Type.dhall
 

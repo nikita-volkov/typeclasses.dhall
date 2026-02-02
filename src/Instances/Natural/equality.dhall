@@ -22,7 +22,7 @@ This implementation satisfies all Equality laws:
 - **Symmetry**: `equal x y = equal y x` for all naturals `x`, `y`
 - **Transitivity**: If `equal x y = True` and `equal y z = True`, then `equal x z = True`
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Equality = ../../Classes/Equality/Type.dhall
 

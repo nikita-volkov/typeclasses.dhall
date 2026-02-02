@@ -1,7 +1,7 @@
 {-|
 Generate a list of sample values using an Arbitrary instance.
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Self = ./Type.dhall
 

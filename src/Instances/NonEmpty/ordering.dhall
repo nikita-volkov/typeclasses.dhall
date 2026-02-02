@@ -43,7 +43,7 @@ let result3 = nonEmptyOrdering.order ne1 ne4  -- Order.Equal
 - **Worst case**: O(min(m,n)) when comparing full structures
 - **Leverages**: Optimized List ordering implementation for tails
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 

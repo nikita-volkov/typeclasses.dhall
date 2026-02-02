@@ -23,7 +23,7 @@ This implementation satisfies all Ordering laws:
 - **Antisymmetry**: If `order x y = Equal`, then `x = y`
 - **Transitivity**: Ordering relationships are transitive
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = ../../Classes/Ordering/Type.dhall
 

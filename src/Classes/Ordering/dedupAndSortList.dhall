@@ -38,7 +38,7 @@ let result = dedupAndSortList Natural naturalOrdering unsorted
 - **Normalization**: Prepare data for comparison or processing
 -}
 -- Dedupes and sorts a list of elements of type `A` based on the provided `Ordering`.
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = ./Type.dhall
 

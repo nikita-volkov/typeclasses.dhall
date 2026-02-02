@@ -53,7 +53,7 @@ let result3 = insertIntoDedupedSortedList Natural naturalOrdering 0 sortedList
 -- Assuming that the input list is already sorted and deduplicated,
 -- inserts a new element into the list if it is not already present,
 -- maintaining the sorted order.
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = ./Type.dhall
 

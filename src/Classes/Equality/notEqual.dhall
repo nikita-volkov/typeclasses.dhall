@@ -24,7 +24,7 @@ let result2 = notEqual Natural naturalEquality 5 5  -- False
 Uses boolean negation of the equality test to derive inequality. This ensures
 perfect consistency with the equality function.
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let equal = ./equal.dhall
 

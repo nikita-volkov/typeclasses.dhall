@@ -39,7 +39,7 @@ Satisfies all Equality laws when element and list equalities do:
 - **Symmetry**: Order of comparison doesn't matter
 - **Transitivity**: Equality relationships compose correctly
 -}
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Equality = ../../Classes/Equality/Type.dhall
 
