@@ -1,17 +1,22 @@
 {-|
-List equality instance using lexicographic comparison.
-
-This instance implements the `Equality` typeclass for `List` types by comparing
-lists element-wise in lexicographic (dictionary) order.
+List equality instance using element-wise comparison.
 
 ## Parameters
 - `Element : Type` - The type of elements in the list
 - `elementEquality : Equality Element` - Equality instance for the element type
 
 ## Implementation Strategy
-1. **Length check**: First compares list lengths for efficiency
-2. **Element-wise comparison**: If lengths match, zips lists and compares each pair
-3. **Short-circuit**: Returns `False` immediately if any element pair differs
+Performs a single-pass element-wise comparison by folding over the first list
+(indexed via `List/indexed`) and looking up corresponding elements in the second
+list via `List/index` (the same pattern `List/zip` uses internally). This avoids
+allocating an intermediate list of pairs.
+
+Returns `False` immediately if:
+- The second list runs out of elements before the first
+- Any corresponding element pair differs
+
+After processing the first list, returns `False` if the second list has
+remaining elements.
 
 ## Usage
 ```dhall
@@ -25,9 +30,9 @@ let result4 = listEquality.equal ([] : List Natural) []  -- True (empty lists)
 ```
 
 ## Efficiency
-- **O(1) length comparison** first avoids unnecessary element comparisons
-- **Early termination** on first element difference
-- **O(min(m,n))** complexity where m, n are list lengths
+- **No intermediate allocation**: Avoids creating a zipped list of pairs
+- **Early termination** on first element difference or length mismatch
+- **O(min(m,n))** element comparisons, with `List/index` lookups per element
 
 ## Laws
 Satisfies all Equality laws when the element equality does:
@@ -39,30 +44,39 @@ let Prelude = ../../Deps/Prelude.dhall
 
 let Equality = ../../Classes/Equality/Type.dhall
 
-let NaturalExtensions = ../Natural/package.dhall
-
 in  \(Element : Type) ->
     \(elementEquality : Equality Element) ->
       let equal =
             \(x : List Element) ->
             \(y : List Element) ->
-              let lengthsEqual =
-                    NaturalExtensions.equality.equal
-                      (Prelude.List.length Element x)
-                      (Prelude.List.length Element y)
+              let Result = { count : Natural, equal : Bool }
 
-              let Pair = { _1 : Element, _2 : Element }
+              let result =
+                    Prelude.List.foldLeft
+                      { index : Natural, value : Element }
+                      (List/indexed Element x)
+                      Result
+                      ( \(state : Result) ->
+                        \(ix : { index : Natural, value : Element }) ->
+                          if    state.equal
+                          then  merge
+                                  { None = { count = ix.index, equal = False }
+                                  , Some =
+                                      \(yElem : Element) ->
+                                        { count = ix.index + 1
+                                        , equal =
+                                            elementEquality.equal ix.value yElem
+                                        }
+                                  }
+                                  (Prelude.List.index ix.index Element y)
+                          else  state
+                      )
+                      { count = 0, equal = True }
 
-              in  if    lengthsEqual
-                  then  Prelude.List.fold
-                          Pair
-                          (Prelude.List.zip Element x Element y)
-                          Bool
-                          ( \(pair : Pair) ->
-                            \(state : Bool) ->
-                              state && elementEquality.equal pair._1 pair._2
-                          )
-                          True
+              in  if    result.equal
+                  then  merge
+                          { None = True, Some = \(_ : Element) -> False }
+                          (Prelude.List.index result.count Element y)
                   else  False
 
       in  { equal } : Equality (List Element)
