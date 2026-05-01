@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/nikita-volkov/dhall-lang/2347d6c693d51862ad4caa9ec295b237ca1c02dc/Prelude/package.dhall
-  sha256:7d975e724921ddf3d0ff7b7710e025c706fab2fd7b3a702fd2012ea7afaea66c
+https://raw.githubusercontent.com/nikita-volkov/dhall-lang/1a3b4a60d776ee67fd869a1d191f6892df833d42/Prelude/package.dhall
+  sha256:abde63ded779e56c24326a140d20337c8fe1a835c20fbb2911089509605db174
