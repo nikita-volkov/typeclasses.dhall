@@ -1,3 +1,2 @@
-  missing
-    sha256:931cbfae9d746c4611b07633ab1e547637ab4ba138b16bf65ef1b9ad66a60b7f
-? https://raw.githubusercontent.com/dhall-lang/dhall-lang/v23.1.0/Prelude/package.dhall
+https://raw.githubusercontent.com/nikita-volkov/dhall-lang/2347d6c693d51862ad4caa9ec295b237ca1c02dc/Prelude/package.dhall
+  sha256:7d975e724921ddf3d0ff7b7710e025c706fab2fd7b3a702fd2012ea7afaea66c
