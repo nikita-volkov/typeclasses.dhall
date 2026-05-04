@@ -4,6 +4,8 @@
 
 A comprehensive typeclass library for the [Dhall configuration language](https://dhall-lang.org/), providing common functional programming abstractions and their instances for built-in types.
 
+[!IMPORTANT] This library relies on a fork of Dhall that provides primitives for `Natural/equal` and `Natural/lessThan`. These have been [PRd](https://github.com/dhall-lang/dhall-haskell/pull/2739) into the main repo. Until they get merged you will need to use the custom Dhall binary provided in https://github.com/nikita-volkov/dhall-haskell.
+
 ## Overview
 
 This library implements fundamental typeclasses from functional programming, enabling you to write more generic and reusable Dhall code. 
