@@ -50,16 +50,3 @@ https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/v1.0.0/src/pac
   , flatMap : forall (A : Type) -> forall (B : Type) -> (A -> F B) -> F A -> F B
   }
 ```
-
-## Documentation
-
-Comprehensive API documentation is automatically generated and available at:
-[https://nikita-volkov.github.io/typeclasses.dhall/](https://nikita-volkov.github.io/typeclasses.dhall/)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues and pull requests.
-
-## License
-
-This project is open source. Please check the repository for license details.
