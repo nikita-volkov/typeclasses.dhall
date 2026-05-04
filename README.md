@@ -4,6 +4,8 @@
 
 A comprehensive typeclass library for the [Dhall configuration language](https://dhall-lang.org/), providing common functional programming abstractions and their instances for built-in types.
 
+[!IMPORTANT] This library relies on a fork of Dhall that provides primitives for `Natural/equal` and `Natural/lessThan`. These have been [PRd](https://github.com/dhall-lang/dhall-haskell/pull/2739) into the main repo. Until they get merged you will need to use the custom Dhall binary provided in https://github.com/nikita-volkov/dhall-haskell.
+
 ## Overview
 
 This library implements fundamental typeclasses from functional programming, enabling you to write more generic and reusable Dhall code. 
@@ -50,16 +52,3 @@ https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/v1.0.0/src/pac
   , flatMap : forall (A : Type) -> forall (B : Type) -> (A -> F B) -> F A -> F B
   }
 ```
-
-## Documentation
-
-Comprehensive API documentation is automatically generated and available at:
-[https://nikita-volkov.github.io/typeclasses.dhall/](https://nikita-volkov.github.io/typeclasses.dhall/)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues and pull requests.
-
-## License
-
-This project is open source. Please check the repository for license details.

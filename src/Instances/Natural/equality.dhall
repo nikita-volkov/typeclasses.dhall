@@ -26,6 +26,6 @@ let Prelude = ../../Deps/Prelude.dhall
 
 let Equality = ../../Classes/Equality/Type.dhall
 
-let equal = Prelude.Natural.equal
+let equal = Natural/equal
 
 in  { equal } : Equality Natural
