@@ -2,7 +2,7 @@
 
 [![Continuous Docs](https://img.shields.io/badge/docs-master-blue)](https://nikita-volkov.github.io/typeclasses.dhall/)
 
-A comprehensive typeclass library for the [Dhall configuration language](https://dhall-lang.org/), providing common functional programming abstractions and their instances for built-in types.
+Typeclass library for the [Dhall configuration language](https://dhall-lang.org/), providing common functional programming abstractions and their instances for built-in types.
 
 > [!IMPORTANT]
 > This library relies on a fork of Dhall that provides primitives for `Natural/equal` and `Natural/lessThan`. These have been [PRd](https://github.com/dhall-lang/dhall-haskell/pull/2739) into the main repo. Until they get merged you will need to use the custom Dhall binary provided in https://github.com/nikita-volkov/dhall-haskell.
